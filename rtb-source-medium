@@ -1,0 +1,26 @@
+<script type="text/javascript">
+    var urlParameters;
+
+    (window.onpopstate = function () {
+        var match,
+            pl     = /\+/g,  // Regex for replacing addition symbol with a space
+            search = /([^&=]+)=?([^&]*)/g,
+            decode = function (s) { return decodeURIComponent(s.replace(pl, " ")); },
+            query  = window.location.href.split("?")[1];
+
+        urlParameters = {};
+      while (match = search.exec(query)){
+        urlParameters[decode(match[1])] = decode(match[2]);}
+      
+    })();  
+  
+ 
+  
+  
+  	var utmhref = window.location.href;
+  
+	if(utmhref.indexOf("utm_source=rtbhouse") > -1)  
+    {
+      document.cookie = "rtbsourcecookie=yes; " + expireDate + "; path=/;";
+    }  
+</script>
